@@ -11,7 +11,7 @@ export default function PackingList() {
     <div className="list">
       <ul>
         {packingList.map((item) => (
-          <Item item={item} />
+          <Item item={item} key={item.name} />
         ))}
       </ul>
     </div>
