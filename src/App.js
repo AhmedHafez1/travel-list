@@ -21,11 +21,21 @@ export default function App() {
     setPackList((list) => list.filter((item) => item.name !== name));
   }
 
+  function handleToggleItem(name) {
+    setPackList((list) =>
+      list.map((x) => (x.name === name ? { ...x, packed: !x.packed } : x))
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItem={handleAddItem} />
-      <PackingList packList={packList} onDeleteItem={handleDeleteItem} />
+      <PackingList
+        packList={packList}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+      />
       <Stats />
     </div>
   );
